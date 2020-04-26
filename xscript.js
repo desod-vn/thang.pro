@@ -1,61 +1,140 @@
-var itemsList = document.getElementById('items-list');
-var writeDown = setTimeout(writeDown, 3000);
-var sayHello = document.getElementById('sub-hello');
-var loopName,i = 0;
-var count = (pros.length - 1);
-var itemShow = document.getElementById('item-show');
-var itemDetail = document.getElementById('item-detail');
-var itemVideo = document.getElementById('video-detail');
 /////////////////////////////
-//Change content when access
+//List my productions on default
 /////////////////////////////
-function writeDown(){
-    sayHello.innerHTML = '.';
-    loopName = setInterval(loopName, 1000);
-}
+$("#items-list").html(listDefault());
+clickItem();
+function listDefault(){
+    var count = (itemsList.length - 1);
+    var inContent = '';
+    for(var i = count; i >= (count - 5); i--){
+        if(i === count || i === (count - 3))
+            inContent += '<div class="row">';
 
-function loopName(){
-    sayHello.innerHTML += '.';
-    i++;
-    if(i == 3)
-        sayHello.innerHTML = 'I\'M A <span class="black-bg">Developer</span>';
-    if(i == 7)
-        sayHello.innerHTML = 'I\'M A <span class="black-bg">Designer</span>';
-    if(i == 11)
-        sayHello.innerHTML = 'IT\'S ALL  <span class="black-bg">Free For You</span>';
-    if(i == 12)
-        i = 0;
+        inContent += '<div class="col-lg-4"><div id="' + i + '" class="item-pr">'
+        + '<img class="img" src="' + itemsList[i].img + '" alt="" />'
+        + '<div class="item-title">' + itemsList[i].name + '</div>'
+        + ''
+        + '</div></div>';
+
+        if(i == (count - 2) || i == (count - count))
+            inContent += '</div>';
+    }
+        return inContent;
 }
 /////////////////////////////
-//End change content when access
+//End my productions on default
 /////////////////////////////
+
+
+
+/////////////////////////////
+//Choose a type in my list
+/////////////////////////////
+$('.rd').click(function(){
+    var setNumber = parseInt(this.value);
+    if(setNumber === 0){
+        $('.rd').removeAttr('id');
+        $(this).attr('id','active');
+        $("#items-list").html(listDefault());
+    }
+    else{
+        $('.rd').removeAttr('id');
+        $(this).attr('id','active');
+        $("#items-list").html(listType(setNumber));
+    }
+    clickItem();
+});
+/////////////////////////////
+//End choose a type in my list
+/////////////////////////////
+
+
+
+/////////////////////////////
+//Sort my productions on type
+/////////////////////////////
+function listType(type){
+    var count = 0;
+    var inContent = '';
+    var itemNumber = (itemsList.length - 1);
+    var i = 0;
+
+    for(var j=0; j < itemsList.length; j++)
+        if(type == itemsList[i].typeno)
+            count++;
+    
+    while(itemNumber >= 0){
+        if(type == itemsList[itemNumber].typeno){
+        if(i == 0 || i == 3)
+            inContent += '<div class="row">';
+        
+        inContent += '<div class="col-lg-4"><div id="' + itemNumber + '" class="item-pr">' //+ pros[i].pack
+        + '<img class="img" src="' + itemsList[itemNumber].img + '" alt="" />'
+        + '<div class="item-title">' + itemsList[itemNumber].name + '</div>'
+        + ''
+        + '</div></div>';
+
+        i++;
+
+        if(i == 3 || i == 6 )
+            inContent += '</div>';
+        }
+            if(i==6)
+                break;
+
+            --itemNumber;
+    }
+    return inContent;
+}
 
 /////////////////////////////
 //Packages include languages
 /////////////////////////////
 
+function clickItem(){
+    $('.item-pr').click(function(){
+        const id = this.id;
+        document.body.style.overflow = 'hidden';
+
+        $(this).after('<div id="item-show"></div>');
+        $('#item-show').css('display', 'block');
+        $('#item-show').css('background', 'url('  + itemsList[id].img + ')');
+        showItem(id);
+
+        $('#close').click(function(){
+            document.body.style.overflow = 'auto';
+            $('#item-detail').remove();
+            $('#item-show').remove();
+        });
+    });
+}
+
+
+function showItem(id){
+    var insertCon = '<div class="container">'
+    + '<div class="row">' + '<div class="col-lg-8">'
+    + '<div class="embed-responsive embed-responsive-4by3">'
+    + '<div id="video-detail"></div>'
+    + '</div>' + '</div>'
+    + '<div class="col-lg-4">'
+    + '<div id="more-detail"></div>'
+    + '</div>' + '</div>';
+
+
+    $('#item-show').after('<div id="item-detail"></div>');
+    $('#item-detail').html(insertCon);
+    $('#video-detail').html('<iframe class="embed-responsive-item" src="' + itemsList[id].ytb + '" allow="autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
+    $('#more-detail').html('<div class="name">' + itemsList[id].name + '</div>');
+    $('.name').after('<a class="down" href="' + itemsList[id].link + '" target="_blank">DOWNLOAD</a>');
+    $('.down').after('<a id="close">CLOSE</a>');
+    $('#close').after('<iframe class="bot" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fbok.supporter" width="100%" height="214" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>');
+}
 /////////////////////////////
 //Write products to homepage
 /////////////////////////////
-function listPro(){
-    var inContent = '';
-    for(var i = count; i >= (count - 7); i--){
-        if(i == count || i == (count - 4))
-            inContent += '<div class="row">';
 
-    inContent += '<div class="col-lg-3"><div id="' + i + '" class="item-pr">' + pros[i].pack
-    + '<img class="img-fluid" src="' + pros[i].img + '" alt="" />'
-    + '<div class="item-title">' + pros[i].name + '</div>'
-    + '<div id="' + i + '" class="overlay"><div class="item-link">Click để xem thêm</div></div>'
-    + '</div></div>';
 
-        if(i == (count - 3) || i == (count - count))
-            inContent += '</div>';
-}
-        return inContent;
-}
-
-itemsList.innerHTML = listPro();
+//itemsList.innerHTML = listPro();
 /////////////////////////////
 //End wirte content to homepage
 /////////////////////////////
@@ -65,6 +144,7 @@ itemsList.innerHTML = listPro();
 /////////////////////////////
 //Start show production
 /////////////////////////////
+/*
 itemsList.addEventListener('mousedown', showProductions);
 
 function showProductions(event){
@@ -79,7 +159,7 @@ function showProductions(event){
             itemDetail.style.display = 'block';
         
             document.body.style.overflow = 'hidden';
-            itemVideo.innerHTML = '<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/M-h4wJOD4so" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+            itemVideo.innerHTML = '<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/M-h4wJOD4so" allow="autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
 
 
         
@@ -91,4 +171,4 @@ itemShow.onclick = function(){
     document.body.style.overflow = 'auto';
     itemVideo.innerHTML = '';
     itemDetail.style.display = 'none';
-}
+}*/

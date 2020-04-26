@@ -8,27 +8,23 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
     <script src="https://kit.fontawesome.com/2d837f5405.js" crossorigin="anonymous"></script>
     <script src="data.js"></script>
-    <link rel="stylesheet" href="style/home.css" />
+    <script src="include/jquery-3.5.0.min.js"></script>
+    <link rel="stylesheet" href="style/style.css" />
 </head>
 <body>
     <header>
-        <div class="container">
-            <div class="row">
-                <div class="on-down-50">
+        <div class="center-per">
                     <div class="hello">
-                     Vương Toàn Thắng
+                        Vương Toàn Thắng
                     </div>
                     <div id="sub-hello">
-                     Welcome to <span class="black-bg">THANG.PRO</span>
+                        Xin chào bạn
                     </div>
-                    <a class="view-me" href="#me">
-                     XEM THÊM 
-                    </a>
+                    <a class="view-me" href="#me">THÔNG TIN</a>
                 </div>
-            </div>
         </div>
     </header>
-    <div id="me">
+    <!--<div id="me">
         <div class="more">About Me</div>
             <div class="container">
                 <div class="row">
@@ -38,9 +34,11 @@
                     <div class="col-lg-8">
                         <span class="hi">Xin chào mọi người !!! </span> <br />
                         <span class="hi-name">Tôi là: Vương Toàn Thắng.</span> <br />
-                        <span class="hi-name">Tôi đang làm Freelancer Web Developer & Designer.</span> <br />
+                        <div class="hi-more">Sinh năm 2001 tại một vùng quê nhỏ ở tỉnh Hưng Yên.</div>
                         <div class="hi-more">Hiện tôi đang là sinh viên năm nhất tại trường Đại học Công Nghiệp Hà Nội (HAUI)
                         và khoa mà tôi đang theo học là Công nghệ thông tin (IT).</div>
+                        <span class="hi-name">Tôi đang làm Freelancer Web Developer & Designer.</span> <br />
+                        <div class="hi-more">Biết đến lập trình web từ khi còn là một học sinh cấp 2. Hiện tại đang hoạt động về nhiều mảng đặc biệt là web.</div>
                         <div class="hi-more">Website của tôi cung cấp những mã nguồn, code, ứng dụng do tôi phát triển cùng
                         các sản phẩm đã hoàn thiện. Đặc biệt chúng hoàn toàn miễn phí và dễ dàng cài đặt
                         cũng như sử dụng vào nhiều mục đích.</div>
@@ -48,36 +46,33 @@
                     </div>
                 </div>
     </section>
+    <!--End productions-->
     <section id="production">
         <div class="more">My Productions</div>
-            
+        <div class="item-type">
+            <ul>
+                <li value="0" class="rd" id="active">ALL</li>
+                <li value="1" class="rd">WEB DESIGN</li>
+                <li value="2" class="rd">WEB APP</li>
+                <li value="3" class="rd">WORDPRESS</li>
+                <li value="4" class="rd">PHOTO</li>
+                <li value="5" class="rd">EXTENSION</li>
+            </ul>
+        </div>
+        <div class="container">
                 <div id="items-list">
                     <!--Show productions-->
-
-                     <!--End productions-->
-                </div>   
-                <div id="item-detail">
-                <div class="row">
-                    <div class="col-lg-8">
-                        <div class="embed-responsive embed-responsive-4by3">
-                            <div id="video-detail">
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        ahihi
-                    </div>
                 </div>
+
+                
+
             </div>
         </div>
-                <div id="item-show">
-                    
-                    
-                    </div>
+                
                 </div>
         
     </section>
     <script src="xscript.js"></script>
+     <script src="textFunc.js"></script>
 </body>
 </html>
