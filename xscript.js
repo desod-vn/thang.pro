@@ -97,8 +97,6 @@ function clickItem(){
         document.body.style.overflow = 'hidden';
 
         $(this).after('<div id="item-show"></div>');
-        $('#item-show').css('display', 'block');
-        $('#item-show').css('background', 'url('  + itemsList[id].img + ')');
         showItem(id);
 
         $('#close').click(function(){
@@ -127,7 +125,7 @@ function showItem(id){
     $('#more-detail').html('<div class="name">' + itemsList[id].name + '</div>');
     $('.name').after('<a class="down" href="' + itemsList[id].link + '" target="_blank">DOWNLOAD</a>');
     $('.down').after('<a id="close">CLOSE</a>');
-    $('#close').after('<iframe class="bot" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fbok.supporter" width="100%" height="214" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>');
+    $('#close').after('');
 }
 /////////////////////////////
 //Write products to homepage
