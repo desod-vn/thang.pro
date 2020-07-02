@@ -1,0 +1,48 @@
+/* 
+=======================================
+**** Service
+**** There
+=======================================
+*/
+.over-service{
+    background-image: url(cp.gif);
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.one-service{
+    border: 1px solid #808080;
+    margin: 1rem 0;
+    padding: 2.5rem;
+    background-color: white;
+    position: relative;
+}
+.one-service:hover {
+    transition: ease-in-out .5s;
+    background-color: #16bac5;
+}
+.img-service{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.one-service:hover .img-service,.one-service:hover .des-service{
+    color: white;
+}
+.one-service:hover .title-service{
+    transform: translate(-30%);
+    color: #d9d2b6;
+    text-shadow: 2px 2px 2px black;
+}
+.title-service{
+    font-size: 25px;
+    font-weight: bolder;
+    text-align: center;
+    transition: 1s;
+}
+.des-service{
+    font-size: 16px;
+    padding: 0.25rem;
+}

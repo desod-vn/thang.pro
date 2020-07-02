@@ -1,0 +1,65 @@
+/* 
+=======================================
+**** Header
+**** There
+=======================================
+*/
+header{
+    background-image: linear-gradient(45deg, rgba(77, 190, 143, 0.6) 35%, rgba(158, 178, 93, 0.8) 55%), url(road.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+.center-home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.hello-home {
+    font-size: 50px;
+    margin: 0 0 1.5rem;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+}
+.view-home a{
+    color: white;
+    margin: 10px;
+    display: inline;
+    background-color: transparent;
+    border: 2px solid white;
+    padding: 10px;
+    border-radius: 25px;
+}
+.view-home a:hover{
+    background-color: rgb(173, 87, 46);
+}
+.down-home {
+    margin: 10px;
+    border-top: 10px solid black;
+    border-right: 10px solid black;
+    transform: rotate(135deg);
+    height: 30px;
+    width: 30px;
+    position: relative;
+    animation-name: down;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+@keyframes down {
+    0%   {top:0px;}
+    10%  {top:20px;}
+    20%  {top:40px;}
+    30%  {top:60px;}
+    40%  {top:80px;}
+    50%  {top:100px;}
+    60%  {top:80px;}
+    70%  {top:60px;}
+    80%  {top:40px;}
+    90%  {top:20px;}
+    100% {top:0px;}
+  }

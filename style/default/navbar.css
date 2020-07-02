@@ -1,0 +1,100 @@
+/* 
+=======================================
+**** navbar
+**** There
+=======================================
+*/
+.normal-bar {
+    padding: 0rem 0rem;
+    overflow: hidden;
+    width: 100%;
+    background-color: transparent;
+    transition: all .5s;
+    top: 0;
+    z-index: 100;
+}
+    .logo-bar{
+        float: left;
+        text-shadow: 3px 3px 5px bisque;
+    }
+    .logo-bar a{
+        text-decoration: none;
+        color: #362c28;
+        font-size: 45px;
+        padding: 1rem 0.8rem;
+        font-family: 'Poppins', sans-serif;
+    }
+    .toggle-bar{
+        list-style-type: none;
+        float: right;
+        padding: 0;
+        margin: 0;
+    }
+    .toggle-bar::after{
+        content: "";
+        clear: both;
+    }
+        .toggle-bar .icon-bar{
+            padding: 1rem 1rem;
+            display: none;
+        }
+    .toggle-bar li{
+        float: left;
+        text-align: center;
+        padding: 1.2rem 0.8rem;
+    }
+        .toggle-bar li > a{
+            text-decoration: none;
+            font-size: 19px;
+            display: block;
+            color: rgb(41, 36, 36);
+        }
+        .toggle-bar li > a:hover{
+            color: #00d9c0;
+        }
+/*SEARCH BOX*/
+        .toggle-bar li input[type=text] {
+            padding: 5px 15px;
+            float: left;
+            font-size: 15px;
+            border: 1px solid grey;
+            width: 80%;
+            outline: none;
+            background: #f1f1f1;
+            border-top-left-radius: 25px;
+            border-bottom-left-radius: 25px;
+        }
+        .toggle-bar li button[type=submit] {
+            width: 20%;
+            float: left;
+            outline: none;
+            padding: 5px;
+            background: #2196F3;
+            color: white;
+            font-size: 15px;
+            border: 1px solid grey;
+            border-left: none; /* Prevent double borders */
+            cursor: pointer;
+            border-top-right-radius: 25px;
+            border-bottom-right-radius: 25px;
+        }  
+        .toggle-bar li button[type=submit]:hover {
+            background: #0b7dda;
+        }
+@media screen and (max-width: 600px) {
+    .toggle-bar .icon-bar{
+        display: block;
+    }
+    .toggle-bar li{
+        float: none;
+        padding: 1.2rem 0;
+    }
+    .toggle-bar .dropdown-bar{
+        display: none;
+        background-color: #ccc;
+        position: fixed;
+        width: 100%;
+        right: 0;
+        top: 70px;
+    }
+}
