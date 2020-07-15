@@ -79,26 +79,3 @@
     })
     change();
     //
-    $('#items-list').mouseenter(() => {
-        let pr = cl = us = 0;
-    $('#projects').html(pr + ' Projects');
-    $('#clients').html(cl + ' Clients');
-    $('#users').html(us + ' Users');
-    let turn = 0;
-    let count = setInterval(() => {
-        turn++;   
-        pr += Math.round(Math.random() * 1);
-        cl += Math.round(Math.random() * 1);
-        us += Math.round(Math.random() * 500);
-        if(turn == 20){
-            pr = 3;
-            cl = 2;
-            clearInterval(count);
-        }
-        $('#projects').html(pr + ' Projects');
-        $('#clients').html(cl + ' Clients');
-        $('#users').html(us + ' Users');
-        
-    }, 100);
-    });
-    

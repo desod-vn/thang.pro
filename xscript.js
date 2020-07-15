@@ -10,9 +10,9 @@ $.ajax({
         const listDefault = () => {
             const count = (item.length - 1);
             let outCode = '';
-            
+            clickItem();
             for(let i = count; i >= (count - 5); i--){
-                if(i === count || i === (count - 3))
+                if(i == count || i == (count - 3))
                     outCode += '<div class="row">';
 
                 outCode += `<div class="col-sm-4"><div id="${i}" class="item-pr">
@@ -55,7 +55,7 @@ $.ajax({
 
         $('.rd').click(function(){
             const setNumber = parseInt(this.value);
-            if(setNumber === 0){
+            if(setNumber == 0){
                 $('.rd').removeAttr('id');
                 $(this).attr('id','active');
                 $("#items-list").html(listDefault());
@@ -65,76 +65,44 @@ $.ajax({
                 $(this).attr('id','active');
                 $("#items-list").html(listType(setNumber));
             }
-            //clickItem();
+            clickItem();
         });
+
         const clickItem = () => {
-            $('.item-pr').click(function(){
+            $('.item-pr').click(function() {
                 const id = this.id;
-                document.body.style.overflow = 'hidden';
-        
-                $(this).after('<div id="item-show"></div>');
-        
-                $('#close').click(function(){
-                    document.body.style.overflow = 'auto';
-                    $('#item-detail').remove();
+                document.body.style.overflowY = 'hidden';
+                $('body').after('<div id="item-show"></div>');
+                showItem(id);
+                $('#item-show').click((choose) => {
+                    if(choose.target.id == 'item-show'){
+                    document.body.style.overflowY = 'auto';
                     $('#item-show').remove();
+                    }
                 });
             });
         }
 
+        const showItem = id => {
+            const incode = `<div class="container">
+            <div class="row"><div class="col-sm-8">
+            <div class="embed-responsive embed-responsive-4by3">
+            <iframe class="embed-responsive-item" src="${item[id].ytb}"
+            allow="autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+            </iframe></div></div>
+            <div class="col-sm-4"><div id="more-detail">
+            <div class="name">${item[id].name}</div>
+            <a class="down" href="${item[id].link}" target="_blank">DOWNLOAD</a>
+            </div></div>`;
+            $('#item-show').html(incode);
+        }
     $("#items-list").html(listDefault());
+    clickItem();
     }
 });
 
-/////////////////////////////
-//List my productions on default
-/////////////////////////////
-/*
-$("#items-list").html(listDefault());
-clickItem();
-function listDefault(){
-    var count = (itemsList.length - 1);
-    var inContent = '';
-    for(var i = count; i >= (count - 5); i--){
-        if(i === count || i === (count - 3))
-            inContent += '<div class="row">';
 
-        inContent += '<div class="col-sm-4"><div id="' + i + '" class="item-pr">'
-        + '<img class="img" src="' + itemsList[i].img + '" alt="" />'
-        + '<div class="item-title">' + itemsList[i].name + '</div>'
-        + ''
-        + '</div></div>';
-
-        if(i == (count - 2) || i == (count - count))
-            inContent += '</div>';
-    }
-        return inContent;
-}
-/////////////////////////////
-//End my productions on default
-/////////////////////////////
-
-
-
-/////////////////////////////
-//Choose a type in my list
-/////////////////////////////
-
-/////////////////////////////
-//End choose a type in my list
-/////////////////////////////
-
-
-
-/////////////////////////////
-//Sort my productions on type
-/////////////////////////////
-
-/////////////////////////////
-//Packages include languages
-/////////////////////////////
-
-function clickItem(){
+/*const clickItem = () => {
     $('.item-pr').click(function(){
         const id = this.id;
         document.body.style.overflow = 'hidden';
@@ -150,26 +118,9 @@ function clickItem(){
     });
 }
 
+*/
 
-function showItem(id){
-    var insertCon = '<div class="container">'
-    + '<div class="row">' + '<div class="col-sm-8">'
-    + '<div class="embed-responsive embed-responsive-4by3">'
-    + '<div id="video-detail"></div>'
-    + '</div>' + '</div>'
-    + '<div class="col-sm-4">'
-    + '<div id="more-detail"></div>'
-    + '</div>' + '</div>';
-
-
-    $('#item-show').after('<div id="item-detail"></div>');
-    $('#item-detail').html(insertCon);
-    $('#video-detail').html('<iframe class="embed-responsive-item" src="' + itemsList[id].ytb + '" allow="autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
-    $('#more-detail').html('<div class="name">' + itemsList[id].name + '</div>');
-    $('.name').after('<a class="down" href="' + itemsList[id].link + '" target="_blank">DOWNLOAD</a>');
-    $('.down').after('<a id="close">CLOSE</a>');
-    $('#close').after('');
-}
+/*
     <div class="container">
         <div class="row color_me">
             <div class="col-sm-4">

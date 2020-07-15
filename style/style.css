@@ -30,36 +30,17 @@ body, html{
 
 
 /*none*/
-
+.call-me{
+    padding: 10px;
+    color: aliceblue;
+    display: block;
+    font-size: 20px;
+    text-align: center;
+    background-color: rgb(146, 0, 204);
+}
 /* 
 =======================================
 **** Me
 **** There
 =======================================
 */
-.hi {
-    font-size: 20px;
-    font-weight: bold;
-}
-.hi-name {
-    font-size: 20px;
-    font-weight: bold;
-    font-family: Impact;
-}
-.hi-more{
-    text-indent: 10px;
-    margin-top: 5px;
-}
-.hi-infor{
-    background-color: transparent;
-    border-radius: 5px;
-    display: inline-block;
-    padding: 10px 20px;
-    border: 1px solid #6F3;
-    margin-top: 10px;
-}
-.hi-infor:hover{
-    color: white;
-    font-weight: bold;
-    background-color: rgb(80, 133, 10);
-}
